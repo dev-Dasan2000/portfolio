@@ -1,0 +1,164 @@
+:root {
+  --color-1: #051F2E;
+  --color-2: #0A3142;
+  --color-3: #66B2A5;
+  --color-3-transparent: #66B2A54D;
+  --color-4: #E8A877;
+  --color-5: #1A8069;
+  --color-6: #5C7CFA;
+  --color-7: #E6F2F0;
+}
+
+#root {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  box-sizing: border-box; 
+  background-color: var(--color-1); 
+}
+
+.main-container {
+  background-color: var(--color-2);
+  width: calc(100% - 60px);
+  height: calc(100vh - 60px); 
+  padding: 0;
+  margin: 30px;
+  overflow: hidden;
+  box-sizing: border-box; 
+  border: 0.1px solid var(--color-3-transparent);
+  border-radius: 8px;
+  display: grid;
+  grid-template-rows: 1fr 18fr 1fr;
+}
+
+.header-container {
+  display: flex;
+  flex-shrink: 0;
+  border-bottom: 0.1px solid var(--color-3-transparent);
+}
+
+.nav-container {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr 6fr 1fr;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.nav-link {
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+  text-align: center; 
+  height: 100%; 
+  text-decoration: none;
+  color: var(--color-3);
+  padding: 0 10px;
+  font-family: "Fira Code", serif;
+  font-size: small;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.nav-link.active {
+  border-bottom: 2px solid var(--color-4);
+}
+
+.nav-container > :nth-child(1) {
+  justify-content: left; 
+  border-right: 0.1px solid var(--color-3-transparent);
+}
+
+.nav-container > :nth-child(2) {
+  justify-content: center; 
+  border-right: 0.1px solid var(--color-3-transparent);
+}
+
+.nav-container > :nth-child(3) {
+  justify-content: center; 
+  border-right: 0.1px solid var(--color-3-transparent);
+}
+
+.nav-container > :nth-child(4) {
+  justify-content: center;
+  border-right: 0.1px solid var(--color-3-transparent);
+}
+
+.nav-container > :nth-child(6) {
+  justify-content: center; 
+  border-left: 0.1px solid var(--color-3-transparent);
+}
+
+.footer-container {
+  border-top: 0.1px solid var(--color-3-transparent);
+  display: flex;
+}
+
+.nav-container-footer {
+  display: grid;
+  grid-template-columns: 1fr 0.1fr 0.1fr 8.6fr 1.4fr;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.nav-link-footer {
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+  text-align: center; 
+  height: 100%; 
+  text-decoration: none;
+  color: var(--color-3);
+  padding: 0 10px;
+  font-family: "Fira Code", serif;
+  font-size: small;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.nav-container-footer > :nth-child(1) {
+  justify-content: left; 
+  border-right: 0.1px solid var(--color-3-transparent);
+}
+
+.nav-container-footer > :nth-child(2) {
+  justify-content: center; 
+  border-right: 0.1px solid var(--color-3-transparent);
+}
+
+.nav-container-footer > :nth-child(3) {
+  justify-content: center; 
+  border-right: 0.1px solid var(--color-3-transparent);
+}
+
+.nav-container-footer > :nth-child(5) {
+  justify-content: center; 
+  border-left: 0.1px solid var(--color-3-transparent);
+}
+
+.linkedin-icon {
+  width: 25px;
+  height: auto;
+}
+
+.facebook-icon {
+  width: 25px;
+  height: auto;
+}
+
+.github-icon {
+  width: 15px;
+  height: auto;
+  margin-left: 4px;
+}
