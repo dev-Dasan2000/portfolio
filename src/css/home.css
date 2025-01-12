@@ -1,7 +1,7 @@
 .home-main-container {
     font-family: "Fira Code", serif;
     display: flex;
-    background-color: #0f172a; 
+    background-color: var(--color-1); 
     color: #e2e8f0; 
     padding: 1rem;
 }

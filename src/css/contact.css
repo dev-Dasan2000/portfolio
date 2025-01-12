@@ -1,0 +1,116 @@
+.contact-main-container {
+    flex: 1; 
+    display: grid;
+    grid-template-rows: auto 1fr;
+    background-color: var(--color-1);
+    overflow: hidden;
+    min-height: 0; 
+}
+
+.top-contact {
+    border-bottom: 0.1px solid var(--color-3-transparent);
+    display: grid;
+    grid-template-columns: 2fr 1.5fr 8.5fr;
+    min-height: 25px;
+}
+
+.bottom-contact {
+    display: grid;
+    grid-template-columns: 2fr 5fr 5fr;
+    font-family: "Fira Code", serif;
+    overflow: hidden;
+    min-height: 0;
+    height: 100%;;
+}
+
+.contact-top-div-1 {
+    border-right: 0.1px solid var(--color-3-transparent);
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    padding: 0 10px;
+    color: var(--color-3);
+    font-family: "Fira Code", serif;
+    font-size: small;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    gap: 10px;
+}
+
+.contact-top-div-2 {
+    border-right: 0.1px solid var(--color-3-transparent);
+}
+
+.contact-bottom-div-1 {
+    border-right: 0.1px solid var(--color-3-transparent);
+    display: grid;
+    grid-template-rows: 2fr 1fr 15fr;
+}
+
+.contact-bottom-div-2 {
+    border-right: 0.1px solid var(--color-3-transparent);
+}
+
+.container-1 {
+    border-bottom: 0.1px solid var(--color-3-transparent);
+    color: var(--color-3);
+    font-family: "Fira Code", serif;
+    font-size: 0.6rem;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+    padding: 0.2rem;
+}
+
+.container-2 {
+    border-bottom: 0.1px solid var(--color-3-transparent);
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    padding: 0 10px;
+    color: var(--color-3);
+    font-family: "Fira Code", serif;
+    font-size: small;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    gap: 10px;
+}
+
+.email {
+    display: flex;
+    gap: 8px;
+}
+
+.phone {
+    display: flex;
+    gap: 8px;
+}
+
+.container-3 {
+    display: flex;
+    justify-content: left;
+    padding: 0.2rem;
+    color: var(--color-3);
+    font-family: "Fira Code", serif;
+    font-size: small;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    gap: 10px;
+}
+
+.external-link-icon {
+    width: 15px;
+    height: 15px;
+}
+
+.container-3 > a {
+    text-decoration: none;
+    color: var(--color-3);
+}
