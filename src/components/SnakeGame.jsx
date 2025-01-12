@@ -150,7 +150,7 @@ export default function SnakeGame() {
           <div className="controls">
             <div className="controls-text">// use keyboard arrows to play</div>
             <div className="arrow-key-container">
-              <div className="arrow-key">
+              <div className="arrow-keys">
                 {['↑'].map((arrow) => (
                   <div key={arrow} className="arrow-key">
                     {arrow}
