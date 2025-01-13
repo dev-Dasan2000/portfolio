@@ -73,7 +73,6 @@
 .bottom-div-2::-webkit-scrollbar-track {
     background: #0f172a;
     border-left: 0.1px solid var(--color-3-transparent);
-
 }
 
 .bottom-div-2::-webkit-scrollbar-thumb {

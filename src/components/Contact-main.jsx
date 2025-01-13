@@ -1,9 +1,23 @@
+import React, { useState } from 'react';
 import DownArrowLogo from '../assets/down-arrow-icon.png'
 import EmailIcon from '../assets/email-icon.png'
 import PhoneIcon from '../assets/phone-icon.png'
 import LinkIcon from '../assets/external-link-icon.png'
+import ContactForm from './ContactForm'
+import CodePreview from './CodePreview';
 
 export default function Contact_main() {
+
+    const [formData, setFormData] = useState({
+        name: '',
+        email: '',
+        message: ''
+    });
+    
+    const handleFormDataChange = (newData) => {
+        setFormData(newData);
+    };
+
     return (
         <div className="contact-main-container">
             <div className="top-contact">
@@ -35,8 +49,14 @@ export default function Contact_main() {
                         <a href='#' target='_blank'><span>Instagram account</span></a>
                     </div>
                 </div>
-                <div className="contact-bottom-div-2"></div>
-                <div className="contact-bottom-div-3"></div>
+                <div className="contact-bottom-div-2">
+                    <ContactForm onFormDataChange={handleFormDataChange} />
+                </div>
+                <div className="contact-bottom-div-3">
+                    <div className="form-and-preview">
+                        <CodePreview formData={formData} />
+                    </div>
+                </div>
             </div>
         </div>
     )
