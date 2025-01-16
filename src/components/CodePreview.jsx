@@ -12,7 +12,6 @@ export default function CodePreview({ formData }) {
     const words = text.split(' ');
     const lines = [];
     let currentLine = '';
-    
     words.forEach(word => {
       if (currentLine.length + word.length + 1 <= charsPerLine) {
         currentLine += (currentLine.length ? ' ' : '') + word;
@@ -21,68 +20,106 @@ export default function CodePreview({ formData }) {
         currentLine = word;
       }
     });
-    
     if (currentLine) {
       lines.push(currentLine);
     }
     return lines;
   };
 
-  // Format message into multiple lines
   const messageLines = formatParagraph(formData?.message || '', 48);
-  
-  // Generate code lines with proper message formatting
+
   const generateCodeLines = () => {
     const lines = [
       `const button = document.querySelector("#sendBtn");`,
       ``,
       `const message = {`,
-      `  name: "${formData?.name || ''}", `,
-      `  email: "${formData?.email || ''}", `,
+      ` name: "${formData?.name || ''}",`,
+      ` email: "${formData?.email || ''}",`,
     ];
 
-    // Add message lines with proper indentation
-    messageLines.forEach((messageLine, index) => {
-      if (index === 0) {
-        lines.push(`  message: "${messageLine}${messageLines.length > 1 ? '' : '",'}`) ;
-      } else if (index === messageLines.length - 1) {
-        lines.push(`           "${messageLine}",`);
-      } else {
-        lines.push(`           "${messageLine}`);
+    // Handle message property with proper multi-line formatting
+    if (messageLines.length > 0) {
+      lines.push(` message: "${messageLines[0]}`);
+      for (let i = 1; i < messageLines.length; i++) {
+        if (i === messageLines.length - 1) {
+          lines.push(`${messageLines[i]}",`);
+        } else {
+          lines.push(`${messageLines[i]}`);
+        }
       }
-    });
+    } else {
+      lines.push(` message: "",`);
+    }
 
-    lines.push(`  date: "${currentDate}"`,
+    lines.push(` date: "${currentDate}"`,
       `}`,
       ``,
       `button.addEventListener('click', () => {`,
-      `  form.send(message);`,
-      `})`);
-
+      ` form.send(message);`,
+      `})`
+    );
     return lines;
   };
 
   const codeLines = generateCodeLines();
 
-  const renderCodePart = (part) => {
-    let className = '';
-    if (part.includes('const')) className = 'keyword';
-    else if (part.includes('document') || part.includes('button')) className = 'variable';
-    else if (part.includes('querySelector') || part.includes('addEventListener') || part.includes('send')) className = 'function';
-    else if (part.startsWith('"') || part.endsWith('"')) className = 'string';
-    else if (part.includes('{') || part.includes('}') || part.includes('(') || part.includes(')') || part === '=' || part === ';' || part === ',') className = 'punctuation';
-    
-    return (
-      <span className={className}>
-        {part}{' '}
-      </span>
-    );
+  const renderCodePart = (line) => {
+    // Special handling for object property lines
+    if (line.trim().startsWith('name:') || 
+        line.trim().startsWith('email:') || 
+        line.trim().startsWith('date:')) {
+      const [key, ...valueParts] = line.split(':');
+      return (
+        <>
+          <span className="variable">{key.trim()}</span>
+          <span className="punctuation">:</span>
+          {' '}
+          <span className="string">{valueParts.join(':').trim()}</span>
+        </>
+      );
+    }
+
+    // Special handling for message property and its continuation lines
+    if (line.trim().startsWith('message:')) {
+      const [key, ...valueParts] = line.split(':');
+      return (
+        <>
+          <span className="variable">{key.trim()}</span>
+          <span className="punctuation">:</span>
+          {' '}
+          <span className="string">{valueParts.join(':').trim()}</span>
+        </>
+      );
+    }
+
+    // Handle message continuation lines
+    if (messageLines.some(msgLine => line.trim() === msgLine || 
+        line.trim() === `${msgLine}",`)) {
+      return <span className="string">{line}</span>;
+    }
+
+    // Handle other code parts
+    const parts = line.split(' ').filter(Boolean);
+    return parts.map((part, index) => {
+      let className = '';
+      if (part.includes('const')) className = 'keyword';
+      else if (part.includes('document') || part.includes('button')) className = 'variable';
+      else if (part.includes('querySelector') || part.includes('addEventListener') || part.includes('send')) className = 'function';
+      else if (part.startsWith('"') || part.endsWith('"')) className = 'string';
+      else if (part.includes('{') || part.includes('}') || part.includes('(') || part.includes(')') || part === '=' || part === ';' || part === ',') className = 'punctuation';
+      
+      return (
+        <React.Fragment key={index}>
+          <span className={className}>{part}</span>
+          {' '}
+        </React.Fragment>
+      );
+    });
   };
 
   return (
     <pre className="code-preview">
       <code className="code-container">
-        {/* Line numbers */}
         <div className="line-numbers">
           {codeLines.map((_, i) => (
             <div key={i + 1} className="line-number">
@@ -90,20 +127,10 @@ export default function CodePreview({ formData }) {
             </div>
           ))}
         </div>
-        
-        {/* Code content */}
         <div className="code-content">
           {codeLines.map((line, i) => (
             <div key={i} className="code-line">
-              {line ? (
-                line.split(' ').map((part, j) => (
-                  <React.Fragment key={j}>
-                    {renderCodePart(part)}
-                  </React.Fragment>
-                ))
-              ) : (
-                '\u00A0'
-              )}
+              {line ? renderCodePart(line) : '\u00A0'}
             </div>
           ))}
         </div>

@@ -46,7 +46,7 @@ export default function Contact_main() {
                     </div>
                     <div className="container-3">
                         <img src={LinkIcon} alt='arrow-icon' className='external-link-icon' />
-                        <a href='#' target='_blank'><span>Instagram account</span></a>
+                        <span><a href='https://www.instagram.com/dasan_jayathilaka/' target='_blank'>Instagram account</a></span>
                     </div>
                 </div>
                 <div className="contact-bottom-div-2">
