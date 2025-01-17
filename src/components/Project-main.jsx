@@ -19,6 +19,15 @@ export default function Project_main() {
         }
     };
 
+    const filteredProjects = selectedTechs.length === 0 
+    ? projectData 
+    : projectData.filter(project => {
+        // Check if any of the selected technologies match with project technologies
+        return selectedTechs.some(selectedTech => 
+            project.techs.includes(selectedTech)
+        );
+    });
+
     const handleClearAll = () => {
 
         setSelectedTechs([]);
@@ -74,7 +83,7 @@ export default function Project_main() {
                     </form>
                 </div>
                 <div className='bottom-div-2'>
-                    {projectData.map(proj =>(
+                    {filteredProjects.map(proj => (
                         <Project
                             key={proj.id}
                             {...proj}

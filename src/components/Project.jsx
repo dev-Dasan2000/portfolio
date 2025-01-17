@@ -10,6 +10,13 @@ export default function Project(props) {
                 <div>
                     <div className="details-container">
                         <p className="details">{props.para}</p>
+                        <div className="technologies-container">
+                            {props.techs.map(tech => (
+                                <span key={tech} className="technology-tag">
+                                    {tech}
+                                </span>
+                            ))}
+                        </div>
                     </div>
                     <div className="social-container">
                         <a href={props.href} target="_blank"><img className="github-social-icon" src={GithubLogo} alt="github-icon" /></a>

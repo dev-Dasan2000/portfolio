@@ -37,7 +37,6 @@ export default function CodePreview({ formData }) {
       ` email: "${formData?.email || ''}",`,
     ];
 
-    // Handle message property with proper multi-line formatting
     if (messageLines.length > 0) {
       lines.push(` message: "${messageLines[0]}`);
       for (let i = 1; i < messageLines.length; i++) {
@@ -64,7 +63,7 @@ export default function CodePreview({ formData }) {
   const codeLines = generateCodeLines();
 
   const renderCodePart = (line) => {
-    // Special handling for object property lines
+
     if (line.trim().startsWith('name:') || 
         line.trim().startsWith('email:') || 
         line.trim().startsWith('date:')) {
@@ -79,7 +78,6 @@ export default function CodePreview({ formData }) {
       );
     }
 
-    // Special handling for message property and its continuation lines
     if (line.trim().startsWith('message:')) {
       const [key, ...valueParts] = line.split(':');
       return (
@@ -92,13 +90,11 @@ export default function CodePreview({ formData }) {
       );
     }
 
-    // Handle message continuation lines
     if (messageLines.some(msgLine => line.trim() === msgLine || 
         line.trim() === `${msgLine}",`)) {
       return <span className="string">{line}</span>;
     }
 
-    // Handle other code parts
     const parts = line.split(' ').filter(Boolean);
     return parts.map((part, index) => {
       let className = '';
