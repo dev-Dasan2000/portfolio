@@ -22,7 +22,7 @@ export default function Project_main() {
     const filteredProjects = selectedTechs.length === 0 
     ? projectData 
     : projectData.filter(project => {
-        // Check if any of the selected technologies match with project technologies
+
         return selectedTechs.some(selectedTech => 
             project.techs.includes(selectedTech)
         );
