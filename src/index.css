@@ -185,6 +185,26 @@ body {
 
 .mobile-nav-container-footer {
   display: none;
+  display: flex;
+  width: 100%;
+  padding: 1rem;
+  box-sizing: border-box;
+  align-items: center;
+  border-top: 0.00625rem solid var(--color-3-transparent);
+  background-color: var(--color-2);
+}
+
+.mobile-nav-container-footer .nav-link-footer:first-child {
+  color: var(--color-3);
+  font-family: "Fira Code", serif;
+  font-size: small;
+  margin-right: 1rem;
+}
+
+.mobile-nav-container-footer .social-icons {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
 }
 
 @media screen and (max-width: 768px) {
@@ -196,6 +216,14 @@ body {
     min-height: 3rem;
     border: none;
     background-color: transparent;
+  }
+
+  .footer-container {
+    display: none;
+  }
+
+  .nav-container {
+    display: none;
   }
 
   .mobile-nav-container {
@@ -219,6 +247,10 @@ body {
     display: flex;
     flex-direction: column;
     z-index: 1000;
+    height: calc(100vh - 4.5rem);
+    border: none; /* Remove border */
+    margin: 0;
+    padding: 0;
   }
 
   .mobile-nav-links-1 {
@@ -226,18 +258,49 @@ body {
     flex-direction: column;
   }
 
+  .mobile-nav-links-1 > :nth-child(1) {
+    border-top: 0.00625rem solid var(--color-3-transparent);
+  }
+
   .mobile-nav-links-1 .nav-link {
     padding: 1rem;
     justify-content: flex-start;
-    border-top: 0.00625rem solid var(--color-3-transparent);
+    border-bottom: 0.00625rem solid var(--color-3-transparent);
   }
 
   .mobile-nav-links-2 {
-    flex-grow: 1;
+    flex: 1;
+    min-height: 0;
+    margin: 0;
+    padding: 0;
   }
 
-  .mobile-nav-links-3 {
-    border-top: 0.00625rem solid var(--color-3-transparent);
+  /* Mobile footer adjustments */
+  .mobile-nav-container-footer {
+    display: flex;
+    width: 100%;
+    padding: 1rem;
+    box-sizing: border-box;
+    align-items: center;
+    background-color: transparent;
+  }
+
+  .mobile-nav-container-footer .social-icons {
+    display: flex;
+    gap: 1.5rem;
+    margin-left: 1rem;
+  }
+
+  /* Adjust icon sizes if needed */
+  .mobile-nav-container-footer .linkedin-icon,
+  .mobile-nav-container-footer .facebook-icon {
+    width: 2rem;
+    height: auto;
+  }
+
+  .mobile-nav-container-footer .github-icon {
+    width: 1.75rem;
+    height: auto;
   }
 
   .navigation-button {
@@ -256,5 +319,69 @@ body {
   .hamburger-navigation-icon {
     width: 2rem;
     height: auto;
+  }
+
+  .footer-container {
+    border-top: 0.00625rem solid var(--color-3-transparent);
+  }
+
+  .nav-container-footer {
+    display: none; /* Hide desktop footer */
+  }
+
+  .mobile-nav-container-footer {
+    display: flex; /* Show mobile footer */
+    width: 100%;
+    box-sizing: border-box;
+    align-items: center;
+    max-height: 3rem;
+    min-height: 3rem;
+    padding: 0;
+    margin: 0;
+  }
+
+  .nav-link-footer-2 {
+    display: grid;
+    grid-template-columns: 5.2fr 2fr 2fr 2fr;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    min-height: 3rem;
+  }
+
+  .mobile-navigation-links {
+    border-right: 0.00625rem solid var(--color-3-transparent);
+    display: flex;
+    align-items: center; 
+    text-align: center; 
+    height: 100%; 
+    text-decoration: none;
+    color: var(--color-3);
+    padding: 0 0.625rem;
+    font-family: "Fira Code", serif;
+    font-size: small;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+  }
+
+  .nav-link-footer-2 > :nth-child(1) {
+    justify-content: left;
+  }
+
+  .nav-link-footer-2 > :nth-child(2) {
+    justify-content: center;
+  }
+
+  .nav-link-footer-2 > :nth-child(3) {
+    justify-content: center;
+  }
+
+  .nav-link-footer-2 > :nth-child(4) {
+    justify-content: center;
+    border-right: none;
   }
 }

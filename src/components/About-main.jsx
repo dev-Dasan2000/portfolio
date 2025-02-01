@@ -21,10 +21,15 @@ export default function About_main() {
     const bioContent = [
         "/**",
         " * About me",
-        " * Driven Software Engineering undergraduate",
-        " * with a passion for creating innovative solutions.",
-        " * Eager to learn from experienced professionals",
-        " * and contribute to real-world projects.",
+        " * Driven Software",
+        " * Engineering undergraduate",
+        " * with a passion for",
+        " * creating innovative",
+        " * solutions. Eager to",
+        " * learn from experienced",
+        " * professionals and",
+        " * contribute to real-world",
+        " * projects.",
         " */"
     ];
 

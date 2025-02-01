@@ -310,3 +310,134 @@
     font-size: 0.7rem;
     color: var(--color-3);
 }
+
+@media screen and (max-width: 768px) {
+    .project-main-container {
+        grid-template-rows: auto 1fr;
+        overflow-x: hidden;
+    }
+  
+    .top-project {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto;
+    }
+  
+    .top-div-1 {
+        border-right: none;
+        border-bottom: 0.1px solid var(--color-3-transparent);
+        padding: 10px;
+    }
+
+    .top-div-1.clickable {
+        cursor: pointer;
+    }  
+    
+    .down-arrow-icon {
+        transition: transform 0.3s ease;
+    }
+    
+    .down-arrow-icon.rotated {
+        transform: rotate(-180deg);
+    }
+  
+    .top-div-2 {
+        border-right: none;
+        border-bottom: none;
+        padding: 10px;
+    }
+  
+    .bottom-project {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto 1fr;
+    }
+  
+    .bottom-div-1 {
+        border-right: none;
+        border-bottom: 0.1px solid var(--color-3-transparent);
+        transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
+        max-height: 0;
+        opacity: 0;
+        overflow: hidden;
+    }
+
+    .bottom-div-1.show {
+        max-height: 500px;
+        opacity: 1;
+    }
+    
+    .bottom-div-1.hide {
+        max-height: 0;
+        opacity: 0;
+    }
+  
+    .bottom-div-2 {
+        padding: 15px 10px;
+        gap: 2rem;
+        justify-content: center;
+        border: none;
+    }
+  
+    .project-container {
+        width: 100%;
+        max-width: 350px;
+        height: auto;
+        min-height: 440px;
+        margin: 0 auto;
+    }
+  
+    .tech-tags {
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 5px 0;
+        border: none;
+    }
+  
+    .form-container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+        padding: 15px;
+        border: none;
+    }
+  
+    .field-container {
+        margin: 5px 0;
+    }
+  
+    .field-container label {
+        font-size: 0.8rem;
+        padding-left: 25px;
+    }
+  
+    .field-container label:before {
+        width: 12px;
+        height: 12px;
+    }
+  
+    .field-container label:after {
+        left: 4px;
+        width: 3px;
+        height: 6px;
+    }
+  
+    .project-image {
+        height: 200px;
+    }
+  
+    .details {
+        font-size: 0.75rem;
+        padding: 10px;
+    }
+  
+    .technologies-container {
+        padding: 0 10px;
+    }
+  
+    .technology-tag {
+        font-size: 0.65rem;
+    }
+  
+    .bottom-div-2::-webkit-scrollbar {
+        display: none;
+    }
+}

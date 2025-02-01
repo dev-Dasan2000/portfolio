@@ -43,7 +43,7 @@ export default function Header() {
                     </div>
                     <div className='mobile-nav-links-2'></div>
                     <div className='mobile-nav-links-3'>
-                        <Footer />
+                        <Footer isMobile={true} />
                     </div>
                 </div>
             )}

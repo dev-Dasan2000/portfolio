@@ -18,6 +18,14 @@ export default function Contact_main() {
         setFormData(newData);
     };
 
+    const Display1 = () => {
+        document.querySelector('.dropdown-1-content').style.display = document.querySelector('.dropdown-1-content').style.display === 'block' ? 'none' : 'block';
+    }
+
+    const Display2 = () => {
+        document.querySelector('.dropdown-2-content').style.display = document.querySelector('.dropdown-2-content').style.display === 'block' ? 'none' : 'block';
+    }
+
     return (
         <div className="contact-main-container">
             <div className="top-contact">
@@ -56,6 +64,42 @@ export default function Contact_main() {
                     <div className="form-and-preview">
                         <CodePreview formData={formData} />
                     </div>
+                </div>
+            </div>
+            <div className='mobile-contact-container'>
+                <div className='container-header'>_contact-me</div>
+                <button 
+                    className='dropdown-1'
+                    onClick={Display1}
+                >
+                    <img src={DownArrowLogo} alt='arrow-icon' className='down-arrow-icon' />
+                    <span>contacts</span>
+                </button>
+                <div className='dropdown-1-content'>
+                    <div className="email">
+                        <img src={EmailIcon} alt='arrow-icon' className='down-arrow-icon' />
+                        <span>dasanthajayathilaka2000@gmail.com</span>
+                    </div>
+                    <div className="phone">
+                        <img src={PhoneIcon} alt='arrow-icon' className='down-arrow-icon' />
+                        <span>+94701941067</span>
+                    </div>
+                </div>
+                <button 
+                    className='dropdown-2'
+                    onClick={Display2}
+                >
+                    <img src={DownArrowLogo} alt='arrow-icon' className='down-arrow-icon' />
+                    <span>find-me-also-in</span>
+                </button>
+                <div className='dropdown-2-content'>
+                    <div className="container-3">
+                        <img src={LinkIcon} alt='arrow-icon' className='external-link-icon' />
+                        <span><a href='https://www.instagram.com/dasan_jayathilaka/' target='_blank'>Instagram account</a></span>
+                    </div>
+                </div>
+                <div>
+                    <ContactForm onFormDataChange={handleFormDataChange} />
                 </div>
             </div>
         </div>

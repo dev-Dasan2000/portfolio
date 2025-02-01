@@ -60,7 +60,7 @@ export default function ContactForm({ onFormDataChange }) {
 
     return (
         <div className="contact-form-container">
-            <form onSubmit={handleSubmit}>
+            <form className='contact-form-element' onSubmit={handleSubmit}>
                 <div className="form-group">
                     <label htmlFor="name" className="form-label">_name:</label>
                     <input

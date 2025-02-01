@@ -1,15 +1,24 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import DownArrowLogo from '../assets/down-arrow-icon.png'
 import CrooIcon from '../assets/cross-icon.png'
 import Form from '../components/Form'
 import formData from '../data/formData'
 import projectData from '../data/projectData'
 import Project from '../components/Project'
-import { useState } from 'react';
 
 export default function Project_main() {
-
     const [selectedTechs, setSelectedTechs] = useState([]);
+    const [isFilterOpen, setIsFilterOpen] = useState(false);
+    const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+
+    useEffect(() => {
+        const handleResize = () => {
+            setIsMobile(window.innerWidth < 768);
+        };
+
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
 
     const handleCheckboxChange = (value, isChecked) => {
         if (isChecked) {
@@ -20,29 +29,39 @@ export default function Project_main() {
     };
 
     const filteredProjects = selectedTechs.length === 0 
-    ? projectData 
-    : projectData.filter(project => {
-
-        return selectedTechs.some(selectedTech => 
-            project.techs.includes(selectedTech)
-        );
-    });
+        ? projectData 
+        : projectData.filter(project => {
+            return selectedTechs.some(selectedTech => 
+                project.techs.includes(selectedTech)
+            );
+        });
 
     const handleClearAll = () => {
-
         setSelectedTechs([]);
-        
         const checkboxes = document.querySelectorAll('input[type="checkbox"]');
         checkboxes.forEach(checkbox => {
             checkbox.checked = false;
         });
     };
 
+    const toggleFilter = () => {
+        if (isMobile) {
+            setIsFilterOpen(!isFilterOpen);
+        }
+    };
+
     return (
         <main className="project-main-container">
             <div className="top-project">
-                <div className='top-div-1'>
-                    <img src={DownArrowLogo} alt='arrow-icon' className='down-arrow-icon' />
+                <div 
+                    className={`top-div-1 ${isMobile ? 'clickable' : ''}`}
+                    onClick={toggleFilter}
+                >
+                    <img 
+                        src={DownArrowLogo} 
+                        alt='arrow-icon' 
+                        className={`down-arrow-icon ${isFilterOpen ? 'rotated' : ''}`}
+                    />
                     <span>projects</span>
                 </div>
                 <div className='top-div-2'>
@@ -69,7 +88,7 @@ export default function Project_main() {
                 <div className='top-div-3'></div>
             </div>
             <div className="bottom-project"> 
-                <div className='bottom-div-1'>
+                <div className={`bottom-div-1 ${isMobile ? (isFilterOpen ? 'show' : 'hide') : ''}`}>
                     <form>
                         <div className="form-container">
                             {formData.map(data => (
