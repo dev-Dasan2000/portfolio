@@ -2,7 +2,6 @@ import LinkedInLogo from '../assets/linkedin-icon.png'
 import FacebookLogo from '../assets/facebook-icon.png'
 import GithubLogo from '../assets/github-icon.png'
 
-// Footer.jsx
 export default function Footer({ isMobile }) {
     if (isMobile) {
         return (

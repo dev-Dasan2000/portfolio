@@ -12,10 +12,8 @@ export default function Projects() {
             setIsMobile(window.innerWidth < 768);
         };
     
-        // Add event listener
         window.addEventListener('resize', handleResize);
     
-        // Clean up event listener
         return () => window.removeEventListener('resize', handleResize);
     }, []);
 

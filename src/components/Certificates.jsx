@@ -53,7 +53,6 @@ const ImageTransition = () => {
 
   return (
     <div className="image-slider">
-      {/* Current Image */}
       <div className={`slide ${getCurrentSlideClass()}`}>
         <img
           src={images[currentIndex]}
@@ -61,7 +60,6 @@ const ImageTransition = () => {
         />
       </div>
 
-      {/* Next/Previous Image */}
       <div className={`slide ${getNextSlideClass()}`}>
         <img
           src={images[(currentIndex + (direction === 'up' ? 1 : images.length - 1)) % images.length]}
@@ -69,7 +67,6 @@ const ImageTransition = () => {
         />
       </div>
 
-      {/* Navigation Buttons */}
       <div className="navigation">
         <button className="nav-button" onClick={goToPrevious}>↑</button>
         <button className="nav-button" onClick={goToNext}>↓</button>

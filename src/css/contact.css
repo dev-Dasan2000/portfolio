@@ -362,7 +362,6 @@
         font-family: "Fira Code", serif;
     }
 
-    /* Dropdown buttons styling */
     .dropdown-1,
     .dropdown-2 {
         display: flex;
@@ -384,7 +383,6 @@
         background-color: var(--color-3-transparent);
     }
 
-    /* Dropdown content styling */
     .dropdown-1-content,
     .dropdown-2-content {
         display: none;
@@ -429,7 +427,6 @@
         width: 100%;
     }
 
-    /* Icons styling */
     .down-arrow-icon {
         width: 0.75rem;
         height: 0.75rem;
@@ -442,7 +439,6 @@
         height: 1rem;
     }
 
-    /* Form styling for mobile */
     .contact-form-container {
         margin-top: 1.5rem;
         padding: 0;
@@ -473,7 +469,6 @@
         font-size: 0.9rem;
     }
 
-    /* Code preview adjustments for mobile */
     .code-preview {
         font-size: 0.8rem;
         padding: 0.75rem;
@@ -487,7 +482,6 @@
         margin-right: 0.75rem;
     }
 
-    /* Success message styling for mobile */
     .success-container {
         padding: 2rem 1rem;
         margin: 1rem auto;

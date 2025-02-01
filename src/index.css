@@ -249,7 +249,7 @@ body {
     flex-direction: column;
     z-index: 1000;
     height: calc(100vh - 4.5rem);
-    border: none; /* Remove border */
+    border: none; 
     margin: 0;
     padding: 0;
   }
@@ -276,7 +276,6 @@ body {
     padding: 0;
   }
 
-  /* Mobile footer adjustments */
   .mobile-nav-container-footer {
     display: flex;
     width: 100%;
@@ -292,7 +291,6 @@ body {
     margin-left: 1rem;
   }
 
-  /* Adjust icon sizes if needed */
   .mobile-nav-container-footer .linkedin-icon,
   .mobile-nav-container-footer .facebook-icon {
     width: 2rem;
@@ -327,11 +325,11 @@ body {
   }
 
   .nav-container-footer {
-    display: none; /* Hide desktop footer */
+    display: none; 
   }
 
   .mobile-nav-container-footer {
-    display: flex; /* Show mobile footer */
+    display: flex; 
     width: 100%;
     box-sizing: border-box;
     align-items: center;
