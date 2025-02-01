@@ -357,9 +357,8 @@
     .container-header {
         align-self: flex-start;
         margin-bottom: 1.5rem;
-        font-size: 1.2rem;
+        font-size: 0.9rem;
         color: var(--color-3);
-        opacity: 0.8;
         font-family: "Fira Code", serif;
     }
 
