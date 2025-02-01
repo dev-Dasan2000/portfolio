@@ -3,7 +3,7 @@
     display: flex;
     background-color: var(--color-1); 
     color: #e2e8f0; 
-    padding: 1rem;
+    padding: 0.5rem;
 }
   
 .left-home {
