@@ -3,7 +3,7 @@
     display: flex;
     background-color: var(--color-1); 
     color: #e2e8f0; 
-    padding: 0.5rem;
+    padding: 1rem;
 }
   
 .left-home {
@@ -61,7 +61,7 @@
 @media screen and (max-width: 768px) {
     .main-container {
         width: 100%;
-        margin: 0.75rem;
+        margin: 0.5rem;
         background-color: #051F2E;
         border: 0.00625rem solid var(--color-3-transparent);
         height: calc(100vh - 1.5rem); 
