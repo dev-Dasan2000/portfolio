@@ -10,13 +10,11 @@
   --color-8: #106d57;
 }
 
-/* test */
-
 #root {
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 
 body {
